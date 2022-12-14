@@ -1,0 +1,189 @@
+#include <iostream>
+using namespace std;
+int main(){
+  int i,j,m,n,matriks1[10][10],matriks2[10][10],hasil[10][10];
+  cout<<"Masukkan jumlah baris matriks : ";
+  cin>>m;
+  cout<<"Masukkan jumlah kolom matriks : ";
+  cin>>n;
+
+  cout<<"\nMasukkan elemen matriks pertama : ";
+  for(i=0; i<m; i++){
+    for(j=0; j<n; j++){
+      cin>>matriks1[i][j];
+    }
+  }
+  cout<<"\nMasukkan elemen matrik kedua : ";
+  for(i=0; i<m; i++){
+    for(j=0; j<n; j++){
+      cin>>matriks2[i][j];
+    }
+  }
+  cout<<"Hasil penjumlahan matriks : \n";
+  for(i=0; i<m; i++){
+    for(j=0; j<n; j++){
+      hasil[i][j]=matriks1[i][j]+matriks2[i][j];
+      cout<<hasil[i][j]<<"\t";
+    }
+    cout<<endl;
+  }
+  return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main(){
+  int matriks1[10][10],matriks2[10][10],hasil[10][10];
+  int i,j,k,m,n,p,q,jumlah=0;
+  cout<<"Masukkan jumlah baris matriks pertama = ";
+  cin>>m;
+  cout<<"Masukkan jumlah kolom matriks pertama = ";
+  cin>>n;
+
+  cout<<"Masukkan jumlah baris matriks kedua = ";
+  cin>>p;
+  cout<<"Masukkan jumlah kolom matriks kedua = ";
+  cin>>q;
+  if(n != p){
+    cout<<"Matriks tidak dapat dikalikan satu sama lain \n";
+  } else{
+    cout<<"Masukkan matriks pertama = \n";
+    for(i=0; i<m; i++){
+      for(j=0; j<n; j++){
+        cin>>matriks1[i][j];
+      }
+    }
+    cout<<"Masukkan matriks kedua = \n";
+    for(i=0; i<p; i++){
+      for(j=0; j<q; j++){
+        cin>>matriks2[i][j];
+      }
+    }
+    for(i=0; i<m; i++){
+      for(j=0; j<q; j++){
+        for(k=0; k<p; k++){
+          jumlah = jumlah+matriks1[i][k]*matriks2[k][j];
+        }
+        hasil[i][j]=jumlah;
+        jumlah=0;
+      }
+    }
+    cout<<"Hasil perkalian matriks = \n";
+    for(i=0; i<m; i++){
+      for(j=0; j<q; j++){
+        cout<<hasil[i][j]<<"\t";
+      }
+      cout<<endl;
+    }
+  }
+  return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main(){
+  int matriks1[10][10],matriks2[10][10],hasil[10][10];
+  int i,j,k,m,n;
+  cout<<"Masukkan jumlah baris matriks pertama = ";
+  cin>>m;
+  cout<<"Masukkan jumlah kolom matriks pertama = ";
+  cin>>n;
+  
+    cout<<"Masukkan matriks pertama = \n";
+    for(i=0; i<m; i++){
+      for(j=0; j<n; j++){
+        cin>>matriks1[i][j];
+      }
+    }
+    cout<<"Masukkan matriks kedua = \n";
+    for(i=0; i<m; i++){
+      for(j=0; j<n; j++){
+        cin>>matriks2[i][j];
+      }
+    }
+    cout<<"Hasil pengurangan matriks = \n";
+    for(i=0; i<m; i++){
+      for(j=0; j<n; j++){
+        hasil[i][j]=matriks1[i][j]-matriks2[i][j];
+        cout<<hasil[i][j]<<"\t";
+      }
+      cout<<endl;
+    }
+  return 0;
+}
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main(){
+  int i,jenispotong,jumlahpesanan;
+  char loop,kodepotong[6]={'d','D','p','P','s','S'};
+  double fee;
+  int jumlahbayar,total,hargasatuan[6],banyakpotong[6],jumlahharga[6];
+  	cout << "GEROBAK FRIED CHICKEN" << endl;
+    cout << "--------------------------" <<endl;
+    cout << "Kode\t Jenis\t Harga" << endl;
+    cout << "--------------------------" <<endl;
+    cout << "D\t Dada\t Rp. 2500" << endl;
+    cout << "P\t Paha\t Rp. 2000" << endl;
+    cout << "S\t Sayap\t Rp. 1500" << endl;
+    cout << "--------------------------" << endl;
+
+  cout<< "Banyak Jenis : ";
+  cin >> jumlahpesanan;
+  cout << endl;
+  for (i=1; i<=jumlahpesanan; i++){
+    cout << "Jenis Ke - : "<<i<<endl;
+    cout << endl;
+    cout << "Jenis Potong d/p/s : ";
+    cin >> kodepotong[i];
+         if (kodepotong[i]=='d'||kodepotong[i]=='D'){
+         	cout <<"Jenis : Dada"<<endl;
+         	hargasatuan[i]=2500;
+		 } else if(kodepotong[i]=='p'||kodepotong[i]=='P'){
+         	cout <<"Jenis : Paha"<<endl;
+         	hargasatuan[i]=2000;
+         } else if(kodepotong[i]=='s'||kodepotong[i]=='S'){
+         	cout <<"Jenis : Sayap"<<endl;
+         	hargasatuan[i]=1500;
+         } else {
+         	cout <<"Kode yang anda masukkan salah";break;
+		 }
+    cout <<"Banyak Potong : ";
+    cin >> banyakpotong[i];
+    cout << endl;
+    	jumlahharga[i]=hargasatuan[i]*banyakpotong[i];
+		jumlahbayar+=jumlahharga[i];
+	}
+  cout << "\t Gerobak Fried Chicken"<<endl;
+  cout <<"---------------------------------------";
+  cout <<endl;
+  cout << "Nomor\t Jenis\t Harga\t Banyak\t Jumlah";
+  cout <<endl;
+  cout << "    \t Potong\t Satuan\t Beli\t Harga";
+  cout <<endl;
+  cout <<"---------------------------------------";
+  cout <<endl;
+  for (i=1; i<=jumlahpesanan; i++)
+  {
+    for (i=1; i<=jumlahpesanan; i++)
+  {
+      cout <<setiosflags(ios::left)<<i;
+      cout <<" ";
+      cout <<'\t'<<"   "<<kodepotong[i];
+      cout <<'\t'<<"   "<<hargasatuan[i];
+      cout <<'\t'<<"   "<<banyakpotong[i];
+      cout <<'\t'<<" "<<jumlahharga[i]<<endl;
+      
+    }
+    cout <<"---------------------------------------"<<endl;
+    fee = jumlahbayar * 0.10;
+    total=fee+jumlahbayar;
+	cout <<"\t\t      Jumlah :"<<'\t'<<jumlahbayar<<endl;
+	cout <<"\t\t   Pajak 10% :"<<'\t'<<fee<<endl;
+	cout <<"\t\t Total bayar :"<<'\t'<<total;
+	
+	}
+	cout << endl;
+  return 0;
+}
